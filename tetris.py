@@ -5,14 +5,19 @@ rodando = True
 pygame.display.set_caption("tetris")
 
 janela = pygame.display.set_mode((500, 700))
-b = [
-    {"quadrado1": pygame.Rect(50, 50, 50, 50)},
-    {"cor_preta": (255, 255, 255)}
-    ]
-while rodando == True:  
+quadrado1=  pygame.Rect(50, 50, 50, 50),
+
+color_white = (255, 255, 255)
+
+def abaixar(a):
+    for abaixando in range(1, 10):
+        a["quadrado1"] -= 50
+        return a
+
+while rodando:  
     janela.fill((0, 0, 0))
 
-    pygame.draw.rect(janela, b["quadrado1", "cor_preta"], )
+    pygame.draw.rect(janela, color_white, quadrado1)
 
     pygame.display.flip()
 
@@ -23,9 +28,9 @@ while rodando == True:
         if evento.type == pygame.KEYDOWN: 
             match evento.key:
                 case pygame.K_d:
-                    b["quadrado1"].x += 5
+                    quadrado1.d += 50
                 case pygame.K_a:
-                    b["quadrado1"].x -= 50
+                    quadrado1.x -= 50
 pygame.quit()
 
 
