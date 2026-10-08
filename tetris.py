@@ -11,16 +11,23 @@ color_white = (255, 255, 255)
 CAIR = pygame.USEREVENT + 1
 pygame.time.set_timer(CAIR, 500)  # fires every 500 ms
 
+fixos = []
+
 rodando = True
 while rodando:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             rodando = False
-
+       
         if evento.type == CAIR:
             if quadrado1.bottom < 700:
                 quadrado1.y += CELULA
-
+                if quadrado1.y == 650:
+                    quadrado2 = pygame.Rect(200, 0, CELULA, 50)
+                    quadrado2.copy()
+                    fixos.append(quadrado2)
+                    print(fixos)
+         
         if evento.type == pygame.KEYDOWN:
             match evento.key:
                 case pygame.K_d:
